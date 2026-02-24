@@ -1,0 +1,77 @@
+﻿version: "1.1"
+currency: "USD"
+default_budget_limit_usd_per_chapter: 0.55
+
+hard_limits:
+  max_iteration_per_chapter: 2
+  new_terms_budget_default: 1
+  chapter_word_count_min: 2000
+  chapter_word_count_max: 4000
+
+quality_thresholds:
+  consistency_score_min: 85
+  style_alignment_min: 80
+  p0_allowed: 0
+
+routing:
+  - task_type: "chapter_outline"
+    preferred_model: "kimi-k2"
+    fallback_model: "gpt-4.1-mini"
+    temperature: 0.45
+    budget_limit_usd: 0.10
+    escalation_rule: "if consistency_score<85 then fallback_model"
+
+  - task_type: "scene_skeleton"
+    preferred_model: "kimi-k2"
+    fallback_model: "claude-3.5-sonnet"
+    temperature: 0.40
+    budget_limit_usd: 0.08
+    escalation_rule: "if structure_coverage<90 then fallback_model"
+
+  - task_type: "draft_expand"
+    preferred_model: "claude-3.5-sonnet"
+    fallback_model: "gpt-4.1"
+    temperature: 0.70
+    budget_limit_usd: 0.28
+    escalation_rule: "if emotional_tension<80 or continuity_flags>0 then fallback_model"
+
+  - task_type: "continuity_check"
+    preferred_model: "gpt-4.1-mini"
+    fallback_model: "gpt-4.1"
+    temperature: 0.20
+    budget_limit_usd: 0.08
+    escalation_rule: "if p0_count>0 and uncertain=true then fallback_model"
+
+tracking_fields:
+  - chapter_id
+  - task_type
+  - model_used
+  - token_in
+  - token_out
+  - cost_usd
+  - generation_time_seconds
+  - iteration_count
+  - consistency_score
+
+alerts:
+  budget_overrun: "cost_usd > default_budget_limit_usd_per_chapter"
+  quality_regression: "consistency_score < 85"
+  repeated_failures: "same_chapter_failures >= 2"
+  p0_detected: "p0_count > 0"
+
+review_priority_weights:
+  reader: 0.35
+  editor: 0.45
+  author: 0.20
+priority_bands:
+  P0: ">=85"
+  P1: "70-84"
+  P2: "<70"
+
+# 文档增强字段（仅注释策略，不作为脚本强依赖键）
+strategy_notes:
+  f3_trigger_policy: "双阈值触发。建议阈值：风险升档>=2且代价可见>=1时触发升级任务。"
+  key_chapter_density_reference: "K3建议8~12章/卷，K2建议30~45章/卷；超过上限需降密并后移。"
+  w3_usage: "W3仅用于局势记录，不用于反向强推剧情。"
+  chronology_system_default: "开拓历"
+  chapter_scale: "每卷约200章，单章2000~4000字"

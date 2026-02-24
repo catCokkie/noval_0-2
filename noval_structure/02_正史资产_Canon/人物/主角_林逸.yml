@@ -1,0 +1,27 @@
+﻿id: char_001
+name: "林逸"
+role: "主角"
+voice:
+  keywords: ["谨慎", "推演", "克制"]
+  taboo: ["无根据断言", "情绪化拍板"]
+competence:
+  strong: ["逻辑推理", "机械理解", "风险评估"]
+  weak: ["正面硬战", "高压社交"]
+motivation:
+  want: "活下来并查清黑隼牺牲真相"
+  need: "接受代价并承担选择后果"
+  fear: "在系统博弈中失去自我"
+secrets:
+  knows: ["系统存在可证伪点"]
+  hides: ["已尝试向系统回传错误信息"]
+upgrade:
+  path: "轨网与观测对抗"
+  level: 1
+  cost_markers: ["短时记忆噪声", "关系信任折损"]
+observability:
+  exposure: 4
+  traces: ["使用能力后偏头痛", "对监控设备过度敏感"]
+relations:
+  char_002: "敌对共体->战术同盟（进行中）"
+  char_003: "高风险对手"
+last_updated_chapter: "v01-c001"

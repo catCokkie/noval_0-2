@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Request Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request"
+  ],
+  "properties": {
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_type",
+        "chapter_id",
+        "goal",
+        "inputs",
+        "constraints",
+        "quality_target"
+      ],
+      "properties": {
+        "task_type": {
+          "type": "string",
+          "enum": [
+            "chapter_outline",
+            "scene_skeleton",
+            "draft_expand",
+            "continuity_check"
+          ]
+        },
+        "chapter_id": {
+          "type": "string",
+          "pattern": "^v[0-9]{2}-c[0-9]{3}$"
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "must_keep": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "forbidden": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "inputs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "constitution",
+            "hard_rules",
+            "character_states",
+            "previous_summary",
+            "foreshadow_state"
+          ],
+          "properties": {
+            "constitution": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hard_rules": {
+              "type": "string",
+              "minLength": 1
+            },
+            "character_states": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "role",
+                  "last_updated_chapter"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "role": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "last_updated_chapter": {
+                    "type": "string",
+                    "pattern": "^v[0-9]{2}-c[0-9]{3}$"
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "previous_summary": {
+              "type": "string"
+            },
+            "foreshadow_state": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "seed_chapter",
+                  "expected_payoff_range",
+                  "status",
+                  "type",
+                  "payload"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^fs[0-9]+$"
+                  },
+                  "seed_chapter": {
+                    "type": "string",
+                    "pattern": "^v[0-9]{2}-c[0-9]{3}$"
+                  },
+                  "expected_payoff_range": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^v[0-9]{2}-c[0-9]{3}$"
+                    }
+                  },
+                  "payoff_chapter": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "planned",
+                      "seeded",
+                      "active",
+                      "paid",
+                      "retired"
+                    ]
+                  },
+                  "type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "payload": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "constraints": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "word_count_target",
+            "pov",
+            "new_terms_budget",
+            "hook_type"
+          ],
+          "properties": {
+            "word_count_target": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "pov": {
+              "type": "string"
+            },
+            "new_terms_budget": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "hook_type": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "quality_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "consistency_score_min",
+            "style_alignment_min"
+          ],
+          "properties": {
+            "consistency_score_min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "style_alignment_min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

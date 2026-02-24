@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chapter Front Matter",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chapter_id",
+    "volume",
+    "season",
+    "status",
+    "pov",
+    "characters",
+    "locations",
+    "new_terms",
+    "foreshadow_add",
+    "foreshadow_payoff",
+    "hook_type",
+    "model_used",
+    "token_in",
+    "token_out",
+    "cost_usd"
+  ],
+  "properties": {
+    "chapter_id": {
+      "type": "string",
+      "pattern": "^v[0-9]{2}-c[0-9]{3}$"
+    },
+    "volume": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "season": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "review",
+        "final",
+        "pending"
+      ]
+    },
+    "pov": {
+      "type": "string",
+      "minLength": 1
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "new_terms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "foreshadow_add": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^fs[0-9]+$"
+      }
+    },
+    "foreshadow_payoff": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^fs[0-9]+$"
+      }
+    },
+    "hook_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_used": {
+      "type": "string",
+      "minLength": 1
+    },
+    "token_in": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "token_out": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cost_usd": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

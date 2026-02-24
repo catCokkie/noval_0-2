@@ -1,0 +1,6 @@
+﻿chapter_id,stage,status,owner,model_used,token_in,token_out,cost_usd,last_update,notes
+v01-c001,planning,review,author,gpt-4.1-mini,1200,500,0.03,2026-02-14,章纲完成待审
+v01-c001,draft,draft,author,gpt-4.1,3200,2100,0.16,2026-02-14,草稿初版
+v01-c001,validation,pending,qa,gpt-4.1-mini,900,700,0.02,2026-02-14,待一致性检查
+v02-c001,planning,pending,author,,,,2026-02-14,未开始
+v03-c001,planning,pending,author,,,,2026-02-14,未开始

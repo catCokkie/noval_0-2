@@ -1,0 +1,27 @@
+﻿id: char_002
+name: 黑隼
+role: 主角
+voice:
+  keywords: ["短句", "直觉", "攻击性诚实"]
+  taboo: ["长篇辩解", "空泛承诺"]
+competence:
+  strong: ["战斗决断", "危险感知", "临场切换"]
+  weak: ["长期协商", "权力结构信任"]
+motivation:
+  want: "完成牺牲的未竟目标"
+  need: "承认与林逸的共同命运"
+  fear: "被再次当作工具容器"
+secrets:
+  knows: ["系统并非中立工具"]
+  hides: ["对终局代价已有预判"]
+upgrade:
+  path: "双魂协同"
+  level: 1
+  cost_markers: ["记忆债务反噬", "身体控制冲突"]
+observability:
+  exposure: 5
+  traces: ["应激接管时瞳色异常", "痛觉阈值突变"]
+relations:
+  char_001: "敌对共体->战术同盟（进行中）"
+  char_003: "历史敌对"
+last_updated_chapter: "v01-c001"

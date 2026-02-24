@@ -1,0 +1,25 @@
+﻿id: char_000
+name: ""
+role: "主角|反派|盟友|配角"
+voice:
+  keywords: []
+  taboo: []
+competence:
+  strong: []
+  weak: []
+motivation:
+  want: ""
+  need: ""
+  fear: ""
+secrets:
+  knows: []
+  hides: []
+upgrade:
+  path: ""
+  level: 1
+  cost_markers: []
+observability:
+  exposure: 0
+  traces: []
+relations: {}
+last_updated_chapter: "v00-c000"

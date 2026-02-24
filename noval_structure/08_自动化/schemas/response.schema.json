@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Response Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "response"
+  ],
+  "properties": {
+    "response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "content",
+        "consistency_flags",
+        "foreshadow_updates",
+        "cost_record",
+        "next_actions"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consistency_flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "level",
+              "reason",
+              "fix"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "P0",
+                  "P1",
+                  "P2"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fix": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "foreshadow_updates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "action"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^fs[0-9]+$"
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "cost_record": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model_used",
+            "token_in",
+            "token_out",
+            "cost_usd"
+          ],
+          "properties": {
+            "model_used": {
+              "type": "string",
+              "minLength": 1
+            },
+            "token_in": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "token_out": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "cost_usd": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "next_actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+﻿- id: fs001
+  seed_chapter: "v01-c001"
+  expected_payoff_range: ["v01-c020", "v01-c080"]
+  payoff_chapter: null
+  status: seeded
+  type: "系统异常"
+  payload: "机械原始值与系统回执出现首次稳定偏差"
+
+- id: fs002
+  seed_chapter: "v01-c003"
+  expected_payoff_range: ["v01-c025", "v02-c060"]
+  payoff_chapter: null
+  status: active
+  type: "双魂规则"
+  payload: "黑隼接管后痛觉阈值与林逸不一致"
+
+- id: fs003
+  seed_chapter: "v01-c008"
+  expected_payoff_range: ["v01-c040", "v02-c070"]
+  payoff_chapter: null
+  status: planned
+  type: "阈值信号"
+  payload: "封印阈值下降与开采强度呈正相关"
+
+- id: fs004
+  seed_chapter: "v01-c015"
+  expected_payoff_range: ["v01-c050", "v02-c080"]
+  payoff_chapter: null
+  status: planned
+  type: "治理线索"
+  payload: "西部董事会高污染决议需超级多数"
+
+- id: fs005
+  seed_chapter: "v02-c010"
+  expected_payoff_range: ["v02-c040", "v03-c080"]
+  payoff_chapter: null
+  status: planned
+  type: "北方分歧"
+  payload: "总统统治派与电磁科技中立派在技术路线与治理边界上公开冲突"
+
+- id: fs006
+  seed_chapter: "v02-c020"
+  expected_payoff_range: ["v02-c060", "v03-c090"]
+  payoff_chapter: null
+  status: planned
+  type: "代理链活跃"
+  payload: "平克顿追迹日志出现同源多点异常"
+
+- id: fs007
+  seed_chapter: "v02-c035"
+  expected_payoff_range: ["v03-c020", "v04-c080"]
+  payoff_chapter: null
+  status: planned
+  type: "部落线索"
+  payload: "守夜公约历史条款存在未公开附录"
+
+- id: fs008
+  seed_chapter: "v03-c012"
+  expected_payoff_range: ["v03-c040", "v04-c090"]
+  payoff_chapter: null
+  status: planned
+  type: "南方裂解"
+  payload: "庄园联邦战后三派在重建路线分裂"
+
+- id: fs009
+  seed_chapter: "v03-c028"
+  expected_payoff_range: ["v03-c070", "v05-c020"]
+  payoff_chapter: null
+  status: planned
+  type: "关系背约"
+  payload: "关键暂盟关系出现可验证背约证据"
+
+- id: fs010
+  seed_chapter: "v04-c018"
+  expected_payoff_range: ["v04-c050", "v05-c040"]
+  payoff_chapter: null
+  status: planned
+  type: "终局机制"
+  payload: "三途径合一本体仍受代理通道与阈值双重限制"
+
+- id: fs011
+  seed_chapter: "v04-c032"
+  expected_payoff_range: ["v04-c070", "v05-c080"]
+  payoff_chapter: null
+  status: planned
+  type: "命名权伏笔"
+  payload: "最终命名权将决定历史叙事归属"
+
+- id: fs012
+  seed_chapter: "v05-c005"
+  expected_payoff_range: ["v05-c040", "v05-c100"]
+  payoff_chapter: null
+  status: planned
+  type: "绑定代价"
+  payload: "绑定不是消灭，而是长期代价结构"

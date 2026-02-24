@@ -1,0 +1,27 @@
+﻿id: char_003
+name: 埃德加·怀特
+role: 反派
+voice:
+  keywords: ["法条化", "冷静", "归档思维"]
+  taboo: ["公开失控", "直接承认动机"]
+competence:
+  strong: ["制度操控", "资源调度", "信息封存"]
+  weak: ["近身冲突", "临时 improvisation"]
+motivation:
+  want: "以秩序名义完成系统化统治"
+  need: "承认秩序不能免除代价"
+  fear: "规则失控导致权威崩解"
+secrets:
+  knows: ["系统训练容器计划"]
+  hides: ["与铁路财阀存在隐秘交换"]
+upgrade:
+  path: "律令审判"
+  level: 2
+  cost_markers: ["私人记忆钝化", "决策道德风险累积"]
+observability:
+  exposure: 6
+  traces: ["关键事件前总先改日志", "公开口径与内部指令不一致"]
+relations:
+  char_001: "压制对象"
+  char_002: "高威胁变量"
+last_updated_chapter: "v01-c001"
